@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import myJson from './fruitlist.json';
 
 const FruitList = () => {
@@ -11,13 +12,11 @@ const FruitList = () => {
       <div>
         {fruits.map((data)=>(
           <div className="card">
-            <p>{data.name} / {data.price}</p>
-            <p>{data.image}</p>
+            <p>{data.name}</p>            
             <p>
-              <img src={process.env.PUBLIC_URL + "/images/" + data.image} alt={data.image}></img>
-            </p>
-            <p>
-              <img src={data.url} alt={data.image}></img>
+              <Link to={"/fruitdetail/" + data.name}>
+                <img src={data.url} alt={data.image}></img>
+              </Link>  
             </p>
           </div>))}
       </div>

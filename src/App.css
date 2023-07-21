@@ -58,3 +58,14 @@
 .card img {
   width: 150px;
 }
+
+.details {
+  background-color: lightcyan;
+  border: blue solid 1px;
+  margin: auto;
+  width: 300px;
+}
+
+.details img {
+  width: 250px;
+}
