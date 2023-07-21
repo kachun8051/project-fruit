@@ -1,0 +1,50 @@
+[
+    {
+      "id": 1,
+      "name": "Apple",
+      "price": 1.99,
+      "image": "apple.jpg",
+      "description": "A crunchy and delicious apple.",
+      "url": "https://clipart-library.com/img/990191.png"
+    },
+    {
+      "id": 2,
+      "name": "Banana",
+      "price": 0.99,
+      "image": "banana.jpg",
+      "description": "A sweet and nutritious banana.",
+      "url": "https://clipart-library.com/img/990650.png"
+    },
+    {
+      "id": 3,
+      "name": "Orange",
+      "price": 1.49,
+      "image": "orange.jpg",
+      "description": "A juicy and tangy orange.",
+      "url": "https://clipart-library.com/img1/781439.png"
+    },
+    {
+      "id": 4,
+      "name": "Grapes",
+      "price": 2.99,
+      "image": "grapes.jpg",
+      "description": "Fresh and seedless grapes.",
+      "url": "https://clipart-library.com/img/990665.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Strawberry",
+      "price": 3.49,
+      "image": "strawberry.jpg",
+      "description": "Sweet and succulent strawberries.",
+      "url": "https://clipart-library.com/img/990744.png"
+    },
+    {
+      "id": 6,
+      "name": "Watermelon",
+      "price": 5.99,
+      "image": "watermelon.jpg",
+      "description": "A refreshing and hydrating watermelon.",
+      "url": "https://clipart-library.com/newhp/33-337922_coloring-book-clip-art-transprent-png-free-colouring.png"
+    }
+]
