@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import myJson from './fruitlist.json';
 
-const FruitList = () => {
-
-  const fruits = myJson;
+const FruitList = (props) => {
+  // pass the list from App.js to FruitList.js
+  const fruits = props.datasrc;
 
   return (
     <>
@@ -17,7 +16,7 @@ const FruitList = () => {
               <Link to={"/fruitdetail/" + data.name}>
                 <img src={data.url} alt={data.image}></img>
               </Link>  
-            </p>
+            </p>            
           </div>))}
       </div>
     </>
