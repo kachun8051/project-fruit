@@ -19,7 +19,12 @@ const FruitDetail = (props) => {
         </p>
         <p><img src={thisFruit.url} alt={thisFruit.image}></img></p>
         <p>Description: {thisFruit.description}</p>
-        <p><Link to="/">Back to home</Link></p>        
+        <div className='rowC'>
+            <p style={{marginLeft: 10, marginRight: 10}}><Link to="/fruit">Back to Fruit List</Link></p>
+            <p style={{marginLeft: 10, marginRight: 10}}><Link to="/">Back to home</Link></p>
+        </div>
+        
+                
         </div>        
     </>
   )

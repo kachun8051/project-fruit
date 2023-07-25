@@ -69,3 +69,9 @@
 .details img {
   width: 250px;
 }
+
+.rowC {
+  display:flex; 
+  flex-direction:row;
+  margin: 5px;
+}
