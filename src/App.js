@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import FruitList from './pages/FruitList';
@@ -11,6 +11,8 @@ import './App.css';
 function App() {
   //fruits
   const fruits = fruitJson;
+  const [ fruit, setfruit ] = useState(fruits);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -20,12 +22,13 @@ function App() {
         <Link className="box" to="/branch">Branch</Link>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/fruit" element={<FruitList datasrc={fruits} />} />
-          <Route path="/fruitdetail" element={<FruitDetail  datasrc={fruits} />}>
-            <Route path=":fid" element={<FruitDetail  datasrc={fruits} />} />
+          <Route path="/fruit" element={<FruitList data={fruit} />} />
+          <Route path="/fruitdetail" element={<FruitDetail  datasrc={fruit} />}>
+            <Route path=":fid" element={<FruitDetail />} />
           </Route>
           <Route path="/juice" element={<JuiceList />} />
           <Route path="/branch" element={<Branch />} />
+          <Route path="*" element={<h1>Error 404</h1>} />
         </Routes>
       </BrowserRouter>
     </div>
