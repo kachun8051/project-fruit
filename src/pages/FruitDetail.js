@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../App';
 import { useParams, Link } from "react-router-dom";
 
-const FruitDetail = (props) => {
+const FruitDetail = () => {
+
+  const [fruit, setFruit] = useContext(Context);
 
   const params = useParams();
-  // pass the list from App.js to FruitDetail.js
-  // const fruits = props.datasrc;
-  // const thisFruit = fruits.find(fruit => fruit.id === parseInt(params.fid));
-  const thisFruit2 = props.datasrc[parseInt(params.fid)-1];
+  const thisFruit2 = fruit[parseInt(params.fid)-1];
   //const arr = props.data;
   if (thisFruit2 === undefined) {
     return (<h1>FruitDetail: {params.fid}</h1>);

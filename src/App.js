@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import FruitList from './pages/FruitList';
@@ -8,13 +8,16 @@ import Branch from './pages/Branch';
 import fruitJson from './data/fruitlist.json';
 import './App.css';
 
+export const Context = React.createContext();
+
 function App() {
   //fruits
   const fruits = fruitJson;
   const [ fruit, setfruit ] = useState(fruits);
 
   return (
-    <div className="App">
+    <Context.Provider value={[ fruit, setfruit ]}>
+      <div className="App">
       <BrowserRouter>
         <Link className="box" to="/">Home</Link>
         <Link className="box" to="/fruit">Fruit</Link>
@@ -32,6 +35,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    </Context.Provider>    
   );
 }
 

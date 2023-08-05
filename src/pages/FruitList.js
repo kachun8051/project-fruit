@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../App';
 import { Link } from 'react-router-dom';
 
-const FruitList = (props) => {
+const FruitList = () => {
   // pass the list from App.js to FruitList.js
-  //const fruits = props.data;
-  console.table(props.data);
-
+  //const fruits = props.data;  
+  const [fruit, setFruit] = useContext(Context);
+  console.table(fruit);
   return (
     <>
       <h1>FruitList</h1>
       <div>
-        {props.data.map((data)=>(
+        {fruit.map((data)=>(
           <div className="card" key={data.id} >
             <p>{data.name}</p>            
             <p>
