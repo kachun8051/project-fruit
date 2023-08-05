@@ -10,6 +10,8 @@ import Branch from './pages/Branch';
 import './App.css';
 
 export const Context = React.createContext();
+// reference: https://youtu.be/0jwnn9sKICg
+// npm install parse <-- install parse library
 // Your Parse initialization configuration goes here
 Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = PARSE_HOST_URL;
@@ -19,36 +21,51 @@ function App() {
   const [ fruit, setfruit ] = useState([]);  
 
   const fetchAllFruits = async() => {
-    const query = new Parse.Query('fruitlist');
-    // find all rows of fruitlist
-    const lstQueried = await query.find();
-    // first, make the object into json string
-    let jsonStr = JSON.stringify(lstQueried);
-    //console.log(jsonStr);
-    // second, convert the json string into object
-    let lstFruit = JSON.parse(jsonStr);
-    let lst = [];
-    for (let i=0; i<lstFruit.length; i++) {
-      let obj = {
-        'id': lstFruit[i].seq,
-        'name': lstFruit[i].name,
-        'price': lstFruit[i].price,
-        'image': lstFruit[i].image,
-        'description': lstFruit[i].description,
-        'url': lstFruit[i].url
-      }
-      lst.push(obj);
-    }
-    setfruit(lst);    
+    if (fruit.length > 0) {
+      return;
+    } 
+    else {
+      const query = new Parse.Query('fruitlist');
+      // find all rows of fruitlist
+      const lstQueried = await query.find();
+      // for debug
+      lstQueried.forEach(
+        (item) => { console.log(item.attributes.name) }
+      );
+      let lstTmp = [];      
+      let result = new Promise(
+        (resolve, reject) => {
+          lstQueried.forEach(
+            (item, idx) => {
+              let obj = {
+                'id': item.attributes.seq,
+                'name': item.attributes.name,
+                'price': item.attributes.price,
+                'image': item.attributes.image,
+                'description': item.attributes.description,
+                'url': item.attributes.url
+              }
+              lstTmp.push(obj);
+              if (idx === lstQueried.length-1) {
+                resolve();
+              }
+            }
+          ); 
+        }
+      );
+      result.then( 
+        () => { setfruit(lstTmp); }
+      );      
+    }        
   }
 
   // fetch data one time when rendering
   useEffect(
     () => {
-       //fetch("https://hh68057a.github.io/demo/product_demo1.json")
-       //  .then((Response) => Response.json())
-       //  .then((data) => setfruit(data));            
-      fetchAllFruits();
+      //  fetch("https://hh68057a.github.io/demo/product_demo1.json")
+      //    .then((Response) => Response.json())
+      //    .then((data) => setfruit(data));            
+      fetchAllFruits()
     }, []
   );
 
