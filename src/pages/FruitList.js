@@ -2,11 +2,10 @@ import React, { useContext } from 'react';
 import { Context } from '../App';
 import { Link } from 'react-router-dom';
 
-const FruitList = () => {
-  // pass the list from App.js to FruitList.js
-  //const fruits = props.data;  
+const FruitList = () => {  
   const [fruit, setFruit] = useContext(Context);
-  console.table(fruit);
+  // visualize as table for debug 
+  // console.table(fruit);
   return (
     <>
       <h1>FruitList</h1>

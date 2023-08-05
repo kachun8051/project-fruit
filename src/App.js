@@ -24,7 +24,7 @@ function App() {
     const lstQueried = await query.find();
     // first, make the object into json string
     let jsonStr = JSON.stringify(lstQueried);
-    console.log(jsonStr);
+    //console.log(jsonStr);
     // second, convert the json string into object
     let lstFruit = JSON.parse(jsonStr);
     let lst = [];

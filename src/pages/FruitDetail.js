@@ -8,7 +8,6 @@ const FruitDetail = () => {
 
   const params = useParams();
   const thisFruit2 = fruit[parseInt(params.fid)-1];
-  //const arr = props.data;
   if (thisFruit2 === undefined) {
     return (<h1>FruitDetail: {params.fid}</h1>);
   } 
