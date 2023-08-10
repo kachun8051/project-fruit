@@ -5,9 +5,17 @@ import { Link } from 'react-router-dom';
 const FruitList = () => {  
   const [fruit, setFruit] = useContext(Context);
   // visualize as table for debug 
-  // console.table(fruit);
-  return (
-    <>
+  // console.table(fruit);  
+    if (Array.isArray(fruit) === false) {
+      console.log(fruit);
+      return (
+        <>
+          <h1>FruitList</h1>
+        </>
+      )
+    }
+    else {
+      return (<>
       <h1>FruitList</h1>
       <div>
         {fruit.map((data)=>(
@@ -20,9 +28,8 @@ const FruitList = () => {
             </p>            
           </div>))}
       </div>
-    </>
-    
-  )
+      </>)
+    } 
 }
 
 export default FruitList;

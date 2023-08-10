@@ -5,7 +5,6 @@ import { useParams, Link } from "react-router-dom";
 const FruitDetail = () => {
 
   const [fruit, setFruit] = useContext(Context);
-
   const params = useParams();
   const thisFruit2 = fruit[parseInt(params.fid)-1];
   if (thisFruit2 === undefined) {
