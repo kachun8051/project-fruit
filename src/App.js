@@ -33,7 +33,6 @@ function App() {
     }, []
   );
 
-  //checkReady();
   return(
     <Context.Provider value={[ fruit, setfruit ]}>
     <div className="App">

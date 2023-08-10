@@ -1,4 +1,3 @@
-// fetch json data from github
 import { PARSE_APPLICATION_ID, PARSE_HOST_URL, PARSE_JAVASCRIPT_KEY } from '../data/keys';
 import Parse from 'parse/dist/parse.min.js';
 
@@ -10,7 +9,7 @@ Parse.serverURL = PARSE_HOST_URL;
 
 class ClsFetchData {
 
-  // fetch data from github
+  // fetch json data from github
   async fetchFromGit() {
     let url = ['https://raw.githubusercontent.com/kachun8051/project-fruit/main/src/data/fruitlist.json', 
                'https://hh68057a.github.io/demo/product_demo1.json']
